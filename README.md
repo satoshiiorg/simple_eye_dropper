@@ -43,8 +43,6 @@ EyeDropper.of(
 If `bytes` argument is null, a blank area is displayed.
 - `onSelected` specifies a callback to be called when the color is selected.
 
-[//]: # (TODO 空白の領域を表示するのはやめた方がよい？ image連携などでも微妙)
-
 ## Pointer
 
 ### Choose a Pointer implementation
@@ -155,9 +153,9 @@ EyeDropper.of(
 ```
 
 In practice, you will probably use `FutureBuilder` for async/await support.  
-See example/lib/main.dart and example/lib/image_picker_button.dart for detailed coding examples.
+See [example/lib/main.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/main.dart)
+and [example/lib/image_picker_button.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/image_picker_button.dart) for detailed coding examples.
 
-[//]: # (TODO リンク)
 
 ### Use with network images
 

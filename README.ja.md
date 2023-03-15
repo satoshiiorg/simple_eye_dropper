@@ -43,8 +43,6 @@ EyeDropper.of(
   null が渡された場合は空白の領域を表示します。
 - `onSelected` には色が選択された際に呼ばれるコールバックを指定します。
 
-[//]: # (TODO 空白の領域を表示するのはやめた方がよい？ image連携などでも微妙)
-
 ## ポインタ
 
 ### ポインタの選択
@@ -159,9 +157,12 @@ EyeDropper.of(
 ```
 
 実際には async/await への対応のため `FutureBuilder` などを使用することになるでしょう。  
-詳細なコーディング例は example/lib/main.dart と example/lib/image_picker_button.dart を参照してください。
+詳細なコーディング例は
+[example/lib/main.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/main.dart)
+と
+[example/lib/image_picker_button.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/image_picker_button.dart)
+を参照してください。
 
-[//]: # (TODO リンク)
 
 ### ネットワーク画像との連携例
 
