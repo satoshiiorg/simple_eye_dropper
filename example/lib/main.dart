@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:simple_eye_dropper/simple_eye_dropper.dart';
-import 'package:simple_eye_dropper_example/image_picker_button.dart';
 
+/// Example of Simple Eye Dropper widget.
+///
+/// When used on iOS, the following settings are required in info.plist:
+/// <key>NSPhotoLibraryUsageDescription</key>
+/// <string>This app requires access to the photo library.</string>
 void main() {
   runApp(const MyApp());
 }
@@ -91,6 +96,32 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// A button to select an image from the camera roll.
+class ImagePickerButton extends StatelessWidget {
+  const ImagePickerButton({super.key, required this.onSelected});
+
+  /// Callback when an image is selected.
+  final ValueChanged<Uint8List> onSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: selectImage,
+      child: const Text('Select Image'),
+    );
+  }
+
+  Future<void> selectImage() async {
+    final picker = ImagePicker();
+    final image = await picker.pickImage(source: ImageSource.gallery);
+    if (image == null) {
+      return;
+    }
+    final bytes = await image.readAsBytes();
+    onSelected(bytes);
   }
 }
 
