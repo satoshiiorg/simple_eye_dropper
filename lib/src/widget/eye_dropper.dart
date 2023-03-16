@@ -182,15 +182,23 @@ class _EyeDropper extends EyeDropper {
 
   /// Call onSelected with the color of the specified position as an argument.
   void _selectColor(Offset position) {
-    // Converts the specified position to the corresponding position in the
+    // Avoid RangeError.
+    if (position.dx < 0 ||
+        _uiImage.width < position.dx ||
+        position.dy < 0 ||
+        _uiImage.height < position.dy) {
+      return;
+    }
+
+    // Convert the specified position to the corresponding position in the
     // image.
     final dx = position.dx ~/ _ratio;
     final dy = position.dy ~/ _ratio;
 
-    // Avoid RangeError.
+    // Convert (dx, dy) to ByteData index.
     final position1d = (dy * _uiImage.width + dx) * 4;
     final length = _bytesRgba.lengthInBytes;
-    if(position1d < 0 || length < position1d) {
+    if (position1d < 0 || length < position1d) {
       return;
     }
 
