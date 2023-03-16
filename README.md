@@ -154,7 +154,7 @@ EyeDropper.of(
 
 In practice, you will probably use `FutureBuilder` for async/await support.  
 See [example/lib/main.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/main.dart)
-and [example/lib/image_picker_button.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/image_picker_button.dart) for detailed coding examples.
+for detailed coding examples.
 
 
 ### Use with network images

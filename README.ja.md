@@ -159,8 +159,6 @@ EyeDropper.of(
 実際には async/await への対応のため `FutureBuilder` などを使用することになるでしょう。  
 詳細なコーディング例は
 [example/lib/main.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/main.dart)
-と
-[example/lib/image_picker_button.dart](https://github.com/satoshiiorg/simple_eye_dropper/blob/master/example/lib/image_picker_button.dart)
 を参照してください。
 
 
