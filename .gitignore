@@ -30,4 +30,5 @@ migrate_working_dir/
 build/
 
 #
+/example/pubspec.lock
 coverage/
