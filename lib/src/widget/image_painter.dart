@@ -7,8 +7,10 @@ class ImagePainter extends CustomPainter {
 
   /// ui.Image
   final ui.Image uiImage;
+
   /// Size of the image.
   final Size size;
+
   /// Image reduction ratio.
   final double ratio;
 

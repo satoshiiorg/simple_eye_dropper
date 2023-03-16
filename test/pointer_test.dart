@@ -10,8 +10,8 @@ void main() {
     await tester.runAsync(() async {
       final byteData = await rootBundle.load('test/test.png');
       final pointer = SimplePointer(
-        // rectSize: 11,
-      );
+          // rectSize: 11,
+          );
       // var aRatio = 0.0;
       // ui.Image? aImage;
       final eyeDropper = EyeDropper.of(

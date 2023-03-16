@@ -21,15 +21,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Builder(builder: (context) {
-        // Size of the image.
-        final screenSize = MediaQuery.of(context).size;
-        final imageAreaSize = Size(
-          screenSize.width * imageAreaWidthRatio,
-          screenSize.height * imageAreaHeightRatio,
-        );
-        return MyHomePage(title: 'Eye Dropper', imageAreaSize: imageAreaSize);
-      },),
+      home: Builder(
+        builder: (context) {
+          // Size of the image.
+          final screenSize = MediaQuery.of(context).size;
+          final imageAreaSize = Size(
+            screenSize.width * imageAreaWidthRatio,
+            screenSize.height * imageAreaHeightRatio,
+          );
+          return MyHomePage(title: 'Eye Dropper', imageAreaSize: imageAreaSize);
+        },
+      ),
     );
   }
 }
@@ -119,7 +121,6 @@ class PickedPainter extends CustomPainter {
 /// Show hex triplet like #FFFFFF.
 extension HexTriplet on Color {
   String hexTriplet() {
-    return '#${value.toRadixString(16).padLeft(8, '0')
-        .substring(2, 8).toUpperCase()}';
+    return '#${value.toRadixString(16).padLeft(8, '0').substring(2, 8).toUpperCase()}';
   }
 }

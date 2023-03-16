@@ -20,7 +20,7 @@ class ImagePickerButton extends StatelessWidget {
   Future<void> selectImage() async {
     final picker = ImagePicker();
     final image = await picker.pickImage(source: ImageSource.gallery);
-    if(image == null) {
+    if (image == null) {
       return;
     }
     final bytes = await image.readAsBytes();

@@ -37,7 +37,7 @@ void main() {
         const Offset(390, 300): const Color(0xffe400ff), // center left
         const Offset(410, 300): const Color(0xff1eff00), // center right
       };
-      for(final offsetColor in map.entries) {
+      for (final offsetColor in map.entries) {
         await tester.tapAt(offsetColor.key);
         await tester.pump();
         expect(actualColor, offsetColor.value);

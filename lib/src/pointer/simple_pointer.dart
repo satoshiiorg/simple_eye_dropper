@@ -13,10 +13,13 @@ class SimplePointer extends Pointer {
 
   /// Color of rect.
   final Color color;
+
   /// Size of rect.
   final double rectSize;
+
   /// Stroke width of rect.
   final double strokeWidth;
+
   /// Offset from center.
   @override
   double get centerOffset => rectSize / 2;
@@ -29,10 +32,10 @@ class SimplePointer extends Pointer {
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth;
     final rect = Rect.fromLTWH(
-        - centerOffset,
-        - centerOffset,
-        rectSize,
-        rectSize,
+      -centerOffset,
+      -centerOffset,
+      rectSize,
+      rectSize,
     );
     canvas.drawRect(rect, paint);
   }
