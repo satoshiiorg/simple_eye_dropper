@@ -16,18 +16,25 @@ class MagnifierPointer extends Pointer {
 
   /// Image of dart:ui.
   final ui.Image uiImage;
+
   /// Image reduction ratio.
   final double ratio;
+
   /// Magnification.
   final double magnification;
+
   /// Size of the outer rect.
   final double outerRectSize;
+
   /// Stroke width of the outer rect.
   final double outerStrokeWidth;
+
   /// Size of the inner rect.
   final double innerRectSize;
+
   /// Stroke width of the inner rect.
   final double innerStrokeWidth;
+
   /// Offset from center.
   @override
   double get centerOffset => outerRectSize / 2;
@@ -38,10 +45,10 @@ class MagnifierPointer extends Pointer {
     final paint = Paint();
 
     final largeRect = Rect.fromLTWH(
-        - centerOffset,
-        - centerOffset,
-        outerRectSize,
-        outerRectSize,
+      -centerOffset,
+      -centerOffset,
+      outerRectSize,
+      outerRectSize,
     );
 
     // Fill background with white for transparent images.
@@ -72,8 +79,8 @@ class MagnifierPointer extends Pointer {
     canvas.drawRect(largeRect, paint);
 
     final smallRect = Rect.fromLTWH(
-      - (innerRectSize / 2),
-      - (innerRectSize / 2),
+      -(innerRectSize / 2),
+      -(innerRectSize / 2),
       innerRectSize,
       innerRectSize,
     );

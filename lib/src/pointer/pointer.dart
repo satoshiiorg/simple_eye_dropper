@@ -14,9 +14,9 @@ abstract class Pointer extends CustomPainter {
   /// Whether or not otherPosition is included in the drawing range of this
   /// pointer. (This implementation assumes a rectangular pointer.)
   bool contains(Offset otherPosition) {
-    return position.dx <= otherPosition.dx + centerOffset
-        && position.dy <= otherPosition.dy + centerOffset
-        && otherPosition.dx + centerOffset <= position.dx + centerOffset * 2
-        && otherPosition.dy + centerOffset <= position.dy + centerOffset * 2;
+    return position.dx <= otherPosition.dx + centerOffset &&
+        position.dy <= otherPosition.dy + centerOffset &&
+        otherPosition.dx + centerOffset <= position.dx + centerOffset * 2 &&
+        otherPosition.dy + centerOffset <= position.dy + centerOffset * 2;
   }
 }
