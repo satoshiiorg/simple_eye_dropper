@@ -8,10 +8,10 @@ void main() {
     Color? actualColor;
 
     await tester.runAsync(() async {
-      final byteData = await rootBundle.load('test/music_castanet_girl.png');
+      final byteData = await rootBundle.load('test/test.png');
       final eyeDropper = EyeDropper.of(
         bytes: byteData.buffer.asUint8List(),
-        size: const Size(100, 200),
+        size: const Size(200, 200),
         pointerBuilder: (_, __) => SimplePointer(),
         onSelected: (color) => actualColor = color,
       );
@@ -27,17 +27,15 @@ void main() {
 
       // Combination of offsets and colors.
       final map = {
-        const Offset(390, 250): const Color(0xff312124),
-        const Offset(390, 300): const Color(0xffffffff),
-        const Offset(390, 350): const Color(0x00000000),
-        const Offset(400, 250): const Color(0xff1a1112),
-        const Offset(400, 290): const Color(0xffb82444),
-        const Offset(400, 300): const Color(0xffffcba0), // center
-        const Offset(400, 310): const Color(0xff51a4dd),
-        const Offset(400, 350): const Color(0xffe5ded3),
-        const Offset(420, 250): const Color(0x00000000),
-        const Offset(420, 300): const Color(0xff170f0f),
-        const Offset(420, 350): const Color(0x00000000),
+        const Offset(400, 300): const Color(0xff6912a1), // center
+        const Offset(300, 200): const Color(0xffff1e31), // top left
+        const Offset(499, 200): const Color(0xff1b32ff), // top right
+        const Offset(300, 399): const Color(0xff1028ff), // bottom left
+        const Offset(499, 399): const Color(0xffff1025), // bottom right
+        const Offset(400, 295): const Color(0xffffe500), // center top
+        const Offset(400, 305): const Color(0xff000000), // center bottom
+        const Offset(390, 300): const Color(0xffe400ff), // center left
+        const Offset(410, 300): const Color(0xff1eff00), // center right
       };
       for(final offsetColor in map.entries) {
         await tester.tapAt(offsetColor.key);
