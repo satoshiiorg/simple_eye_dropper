@@ -1,6 +1,6 @@
 name: simple_eye_dropper
 description: A simple eye dropper widget that depends only on standard libraries.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/satoshiiorg/simple_eye_dropper
 
 environment:
