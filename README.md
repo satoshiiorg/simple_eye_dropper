@@ -61,7 +61,7 @@ EyeDropper.of(
 
 <img src="https://user-images.githubusercontent.com/36852007/225324832-6ca002f4-5bee-4bb9-b9d6-47702a12df7d.png" alt="" width="40%" height="40%" >  
 
-You can also specify a simple pointer as follows
+You can also specify a simple pointer as follows:
 
 ```dart
 EyeDropper.of(
@@ -75,7 +75,20 @@ EyeDropper.of(
 
 <img src="https://user-images.githubusercontent.com/36852007/225325274-0a21a598-e94c-4aba-862c-936f48c9b4b3.png" alt="" width="40%" height="40%" >  
 
-Both pointers have several parameters providing for some customization.
+Or CircleMagnifierPointer is the following:
+
+```dart
+EyeDropper.of(
+bytes: bytes,
+size: const Size(200, 400),
+pointerBuilder: CircleMagnifierPointer.new,
+onSelected: (color) => print('Selected color is $color'),
+);
+```
+
+<img src="https://user-images.githubusercontent.com/36852007/226092922-eb360ceb-dfca-40fd-a6e0-e1bb3c08a6f6.png" alt="" width="40%" height="40%" >  
+
+Both of these pointers have several parameters providing for some customization.
 
 ```dart
 EyeDropper.of(
@@ -97,27 +110,12 @@ EyeDropper.of(
 
 <img src="https://user-images.githubusercontent.com/36852007/225325531-63dc3de8-bfe4-4254-8c75-7e79fb6e2beb.png" alt="" width="40%" height="40%" >  
 
-```dart
-EyeDropper.of(
-  bytes: bytes,
-  size: const Size(200, 400),
-  // Customize a simple small square pointer without magnification.
-  pointerBuilder: (_, __) => SimplePointer(
-    color: Colors.blue,
-    rectSize: 9,
-    strokeWidth: 3,
-  ),
-  onSelected: (color) => print('Selected color is $color'),
-);
-```
-
-<img src="https://user-images.githubusercontent.com/36852007/225325656-175ece87-b5d9-43e2-a6d0-49e7315cf9ba.png" alt="" width="40%" height="40%" >  
-
 
 ### Implement Pointer
 
-You can also create your own pointers by inheriting from `Pointer` or `MagnifierPointer` classes.  
-Refer to the code of the `MagnifierPointer` class for how to implement `Pointer`.  
+You can also create your own pointers by inheriting from `Pointer` classes.  
+Refer to the code of the `CircleMagnifierPointer` class for how to implement `Pointer`.
+
   
 
 ## Image related
@@ -226,12 +224,6 @@ class MyHomePage extends ConsumerWidget {
 
 (snip)
 
-  EyeDropper.of(
-    bytes: grayBytes,
-    size: const Size(200, 400),
-    onSelected: (color) => ref.read(colorProvider.notifier).state = color,
-  );
-
 }
 ```
 
@@ -245,7 +237,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final colorProvider = StateProvider<Color>((ref) => Colors.white);
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends ConsumerWidget {
 
 (snip)
 
@@ -257,16 +249,6 @@ class MyHomePage extends StatelessWidget {
   ),
 
 (snip)
-
-  Consumer(
-    builder: (_, ref, __) {
-      return EyeDropper.of(
-        bytes: grayBytes,
-        size: const Size(200, 400),
-        onSelected: (color) => ref.read(colorProvider.notifier).state = color,
-      );
-    },
-  ),
 
 }
 ```
