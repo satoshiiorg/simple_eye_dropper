@@ -4,6 +4,7 @@ import 'pointer.dart';
 
 /// Magnifying pointer.
 class MagnifierPointer extends Pointer {
+  /// Create MagnifierPointer with [uiImage] and [ratio].
   MagnifierPointer(
     this.uiImage,
     this.ratio, {

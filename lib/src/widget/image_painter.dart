@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 
 /// Display the image in the specified size.
 class ImagePainter extends CustomPainter {
+  /// Create an ImagePainter with [uiImage], [size] and [ratio].
+  ///
+  /// [uiImage] is a [ui.Image].
+  /// [size] is the [Size] of the image.
+  /// [ratio] is the image reduction ratio.
   ImagePainter(this.uiImage, this.size, this.ratio);
 
   /// ui.Image
