@@ -20,6 +20,13 @@ abstract class EyeDropper extends StatelessWidget {
   /// ```
   /// pointerBuilder: (uiImage, ratio) => MagnifierPointer(uiImage, ratio, ...),
   /// ```
+  ///
+  /// Throws an [ImageInitializationException] if [bytes] is an unsupported
+  /// format. See
+  /// [instantiateImageCodec](https://api.flutter.dev/flutter/dart-ui/instantiateImageCodec.html)
+  /// function of dart:ui for supported formats.
+  /// At least the following image formats are supported: JPEG, PNG, GIF,
+  /// Animated GIF, WebP, Animated WebP, BMP, and WBMP.
   factory EyeDropper.of({
     Key? key,
     required Uint8List? bytes,
