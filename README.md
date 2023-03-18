@@ -79,10 +79,10 @@ Or CircularMagnifierPointer is the following:
 
 ```dart
 EyeDropper.of(
-bytes: bytes,
-size: const Size(200, 400),
-pointerBuilder: CircularMagnifierPointer.new,
-onSelected: (color) => print('Selected color is $color'),
+  bytes: bytes,
+  size: const Size(200, 400),
+  pointerBuilder: CircularMagnifierPointer.new,
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
