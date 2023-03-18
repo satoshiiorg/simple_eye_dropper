@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'pointer.dart';
 
 /// Circular magnifying pointer.
-class CircleMagnifierPointer extends Pointer {
-  CircleMagnifierPointer(
+class CircularMagnifierPointer extends Pointer {
+  /// Create CircularMagnifierPointer with [uiImage] and [ratio].
+  CircularMagnifierPointer(
     this.uiImage,
     this.ratio, {
     this.magnification = 2,

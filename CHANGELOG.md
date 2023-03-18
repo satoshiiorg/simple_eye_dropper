@@ -2,7 +2,7 @@
 
 ### Added
 
-- Add CircleMagnifierPointer.
+- Add CircularMagnifierPointer.
 
 ## [0.0.4] - 2023-03-16
 

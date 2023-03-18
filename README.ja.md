@@ -82,7 +82,7 @@ EyeDropper.of(
 bytes: bytes,
 size: const Size(200, 400),
 // 拡大表示付きの円形のポインタ
-pointerBuilder: CircleMagnifierPointer.new,
+pointerBuilder: CircularMagnifierPointer.new,
 onSelected: (color) => print('Selected color is $color'),
 );
 ```

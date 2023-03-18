@@ -75,13 +75,13 @@ EyeDropper.of(
 
 <img src="https://user-images.githubusercontent.com/36852007/225325274-0a21a598-e94c-4aba-862c-936f48c9b4b3.png" alt="" width="40%" height="40%" >  
 
-Or CircleMagnifierPointer is the following:
+Or CircularMagnifierPointer is the following:
 
 ```dart
 EyeDropper.of(
 bytes: bytes,
 size: const Size(200, 400),
-pointerBuilder: CircleMagnifierPointer.new,
+pointerBuilder: CircularMagnifierPointer.new,
 onSelected: (color) => print('Selected color is $color'),
 );
 ```
