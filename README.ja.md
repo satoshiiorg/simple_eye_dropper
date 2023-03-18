@@ -30,12 +30,12 @@ final byteData = await rootBundle.load('asset/example.png');
 (中略)
 
 EyeDropper.of(
-// デコードされていない画像のUint8List
-bytes: byteData.buffer.asUint8List(),
-// 表示するサイズ
-size: const Size(200, 400),
-// 色が選択された際に呼ばれるコールバック
-onSelected: (color) => print('Selected color is $color'),
+  // デコードされていない画像のUint8List
+  bytes: byteData.buffer.asUint8List(),
+  // 表示するサイズ
+  size: const Size(200, 400),
+  // 色が選択された際に呼ばれるコールバック
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -51,11 +51,11 @@ onSelected: (color) => print('Selected color is $color'),
 
 ```dart
 EyeDropper.of(
-bytes: bytes,
-size: const Size(200, 400),
-// 拡大表示付きのポインタがデフォルト
-pointerBuilder: MagnifierPointer.new,
-onSelected: (color) => print('Selected color is $color'),
+  bytes: bytes,
+  size: const Size(200, 400),
+  // 拡大表示付きのポインタがデフォルト
+  pointerBuilder: MagnifierPointer.new,
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -65,11 +65,11 @@ onSelected: (color) => print('Selected color is $color'),
 
 ```dart
 EyeDropper.of(
-bytes: bytes,
-size: const Size(200, 400),
-// 拡大表示のないシンプルな小さな四角のポインタ
-pointerBuilder: (_, __) => SimplePointer(),
-onSelected: (color) => print('Selected color is $color'),
+  bytes: bytes,
+  size: const Size(200, 400),
+  // 拡大表示のないシンプルな小さな四角のポインタ
+  pointerBuilder: (_, __) => SimplePointer(),
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -79,11 +79,11 @@ onSelected: (color) => print('Selected color is $color'),
 
 ```dart
 EyeDropper.of(
-bytes: bytes,
-size: const Size(200, 400),
-// 拡大表示付きの円形のポインタ
-pointerBuilder: CircularMagnifierPointer.new,
-onSelected: (color) => print('Selected color is $color'),
+  bytes: bytes,
+  size: const Size(200, 400),
+  // 拡大表示付きの円形のポインタ
+  pointerBuilder: CircularMagnifierPointer.new,
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -93,24 +93,24 @@ onSelected: (color) => print('Selected color is $color'),
 
 ```dart
 EyeDropper.of(
-bytes: bytes,
-size: const Size(200, 400),
-// 拡大表示付きのポインタをカスタマイズ
-pointerBuilder: (uiImage, ratio) => MagnifierPointer(
-uiImage,
-ratio,
-// 拡大倍率
-magnification: 2.5,
-// 拡大部分のサイズ
-outerRectSize: 101,
-// 囲みの太さ
-outerStrokeWidth: 3,
-// 中心表示のサイズ
-innerRectSize: 9,
-// 中心表示の囲みの太さ
-innerStrokeWidth: 3,
-),
-onSelected: (color) => print('Selected color is $color'),
+  bytes: bytes,
+  size: const Size(200, 400),
+  // 拡大表示付きのポインタをカスタマイズ
+  pointerBuilder: (uiImage, ratio) => MagnifierPointer(
+    uiImage,
+    ratio,
+    // 拡大倍率
+    magnification: 2.5,
+    // 拡大部分のサイズ
+    outerRectSize: 101,
+    // 囲みの太さ
+    outerStrokeWidth: 3,
+    // 中心表示のサイズ
+    innerRectSize: 9,
+    // 中心表示の囲みの太さ
+    innerStrokeWidth: 3,
+  ),
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -140,16 +140,16 @@ dart:ui の [instantiateImageCodec](https://api.flutter.dev/flutter/dart-ui/inst
 final picker = ImagePicker();
 final image = await picker.pickImage(source: ImageSource.gallery);
 if(image == null) {
-return;
+  return;
 }
 final bytes = await image.readAsBytes();
 
 (中略)
 
 EyeDropper.of(
-bytes: bytes,
-size: const Size(200, 400),
-onSelected: (color) => print('Selected color is $color'),
+  bytes: bytes,
+  size: const Size(200, 400),
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -173,9 +173,9 @@ final response = await http.get(Uri.parse('https://example.org/sample.jpg'));
 (中略)
 
 EyeDropper.of(
-bytes: response.bodyBytes,
-size: const Size(200, 400),
-onSelected: (color) => print('Selected color is $color'),
+  bytes: response.bodyBytes,
+  size: const Size(200, 400),
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -198,9 +198,9 @@ grayBytes = img.encodeJpg(grayImage);
 (中略)
 
 EyeDropper.of(
-bytes: grayBytes,
-size: const Size(200, 400),
-onSelected: (color) => print('Selected color is $color'),
+  bytes: grayBytes,
+  size: const Size(200, 400),
+  onSelected: (color) => print('Selected color is $color'),
 );
 ```
 
@@ -240,9 +240,9 @@ class MyHomePage extends ConsumerWidget {
 
   // 選択された色のカラーコードを表示
   Consumer(
-  builder: (_, ref, __) {
-  return Text(ref.watch(colorProvider).toString());
-  },
+    builder: (_, ref, __) {
+      return Text(ref.watch(colorProvider).toString());
+    },
   ),
 
   (中略)
