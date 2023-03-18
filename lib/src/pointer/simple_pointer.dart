@@ -5,6 +5,7 @@ import 'pointer.dart';
 ///
 /// Simple rect frame without magnification.
 class SimplePointer extends Pointer {
+  /// Create SimplePointer.
   SimplePointer({
     this.color = Colors.red,
     this.rectSize = 11,

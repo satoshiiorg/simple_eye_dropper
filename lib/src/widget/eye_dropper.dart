@@ -13,7 +13,13 @@ abstract class EyeDropper extends StatelessWidget {
 
   /// The factory constructor.
   ///
-  /// If bytes is null, an empty area matching the size is displayed.
+  /// [bytes] is an encoded Uint8List of the image.
+  /// If [bytes] is null, an empty area matching the [size] is displayed.
+  /// [onSelected] is a callback on color selection.
+  /// If you want to customize the Pointer, specify [pointerBuilder] as follows:
+  /// ```
+  /// pointerBuilder: (uiImage, ratio) => MagnifierPointer(uiImage, ratio, ...),
+  /// ```
   factory EyeDropper.of({
     Key? key,
     required Uint8List? bytes,
