@@ -12,6 +12,7 @@ class CircularMagnifierPointer extends Pointer {
     this.uiImage,
     this.ratio, {
     this.magnification = 2,
+    this.color = Colors.black,
     this.outerCircleRadius = 60,
     this.outerStrokeWidth = 2,
     this.innerCircleRadius = 5,
@@ -27,6 +28,9 @@ class CircularMagnifierPointer extends Pointer {
 
   /// Magnification.
   final double magnification;
+
+  /// Color of circle.
+  final Color color;
 
   /// Size of the outer circle.
   final double outerCircleRadius;
@@ -104,12 +108,12 @@ class CircularMagnifierPointer extends Pointer {
 
     // Draw circles.
     paint
-      ..color = Colors.black
+      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = outerStrokeWidth;
     canvas.drawCircle(Offset.zero, outerCircleRadius, paint);
     paint
-      ..color = Colors.black
+      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = innerStrokeWidth;
     canvas.drawCircle(Offset.zero, innerCircleRadius, paint);

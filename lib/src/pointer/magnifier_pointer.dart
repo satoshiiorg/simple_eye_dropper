@@ -9,6 +9,7 @@ class MagnifierPointer extends Pointer {
     this.uiImage,
     this.ratio, {
     this.magnification = 2,
+    this.color = Colors.black,
     this.outerRectSize = 91,
     this.outerStrokeWidth = 2,
     this.innerRectSize = 11,
@@ -23,6 +24,9 @@ class MagnifierPointer extends Pointer {
 
   /// Magnification.
   final double magnification;
+
+  /// Color of rect.
+  final Color color;
 
   /// Size of the outer rect.
   final double outerRectSize;
@@ -74,7 +78,7 @@ class MagnifierPointer extends Pointer {
     );
 
     paint
-      ..color = Colors.black
+      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = outerStrokeWidth;
     canvas.drawRect(largeRect, paint);
@@ -86,7 +90,7 @@ class MagnifierPointer extends Pointer {
       innerRectSize,
     );
     paint
-      ..color = Colors.black
+      ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = innerStrokeWidth;
     canvas.drawRect(smallRect, paint);

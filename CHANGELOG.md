@@ -3,6 +3,7 @@
 ### Added
 
 - Add squareDraggableArea property to CircularMagnifierPointer.
+- Add color property to MagnifierPointer and CircularMagnifierPointer.
 
 ## [0.0.5] - 2023-03-18
 
