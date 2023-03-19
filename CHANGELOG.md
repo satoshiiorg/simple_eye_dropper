@@ -1,3 +1,9 @@
+## [0.1.0] - 2023-03-19
+
+### Added
+
+- Add squareDraggableArea property to CircularMagnifierPointer.
+
 ## [0.0.5] - 2023-03-18
 
 ### Added

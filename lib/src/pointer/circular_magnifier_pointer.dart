@@ -5,14 +5,18 @@ import 'pointer.dart';
 /// Circular magnifying pointer.
 class CircularMagnifierPointer extends Pointer {
   /// Create CircularMagnifierPointer with [uiImage] and [ratio].
+  ///
+  /// If [squareDraggableArea] is true, the circumscribed square of the circle
+  /// is draggable. Otherwise, the area of the circle is draggable.
   CircularMagnifierPointer(
     this.uiImage,
     this.ratio, {
     this.magnification = 2,
-    this.outerCircleRadius = 50,
+    this.outerCircleRadius = 60,
     this.outerStrokeWidth = 2,
     this.innerCircleRadius = 5,
     this.innerStrokeWidth = 2,
+    this.squareDraggableArea = true,
   });
 
   /// Image of dart:ui.
@@ -36,9 +40,27 @@ class CircularMagnifierPointer extends Pointer {
   /// Stroke width of the inner circle.
   final double innerStrokeWidth;
 
+  /// If [squareDraggableArea] is true, the circumscribed square of the circle
+  /// is draggable. Otherwise, the area of the circle is draggable.
+  final bool squareDraggableArea;
+
   /// Offset from center.
   @override
   double get centerOffset => outerCircleRadius;
+
+  /// Whether or not otherPosition is included in the drawing range of this
+  /// pointer.
+  ///
+  /// If [squareDraggableArea] is true, the circumscribed square of the circle
+  /// is draggable. Otherwise, the area of the circle is draggable.
+  @override
+  bool contains(Offset otherPosition) {
+    if (squareDraggableArea) {
+      return super.contains(otherPosition);
+    }
+    final distance = (otherPosition - position).distance;
+    return distance <= outerCircleRadius + outerStrokeWidth;
+  }
 
   /// Enlarged image with double squares.
   @override
