@@ -2,7 +2,6 @@ import 'dart:math';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../exception/image_initialization_exception.dart';
 import '../pointer/magnifier_pointer.dart';
 import '../pointer/pointer.dart';
 import 'image_painter.dart';
@@ -21,18 +20,23 @@ abstract class EyeDropper extends StatelessWidget {
   /// pointerBuilder: (uiImage, ratio) => MagnifierPointer(uiImage, ratio, ...),
   /// ```
   ///
-  /// Throws an [ImageInitializationException] if [bytes] is an unsupported
-  /// format. See
+  /// See
   /// [instantiateImageCodec](https://api.flutter.dev/flutter/dart-ui/instantiateImageCodec.html)
   /// function of dart:ui for supported formats.
   /// At least the following image formats are supported: JPEG, PNG, GIF,
   /// Animated GIF, WebP, Animated WebP, BMP, and WBMP.
+  ///
+  /// If [bytes] is not a supported image format, [errorBuilder] is called.
+  /// See
+  /// [Image.errorBuilder](https://api.flutter.dev/flutter/widgets/Image/errorBuilder.html)
+  /// for how to use errorBuilder.
   factory EyeDropper.of({
     Key? key,
     required Uint8List? bytes,
     required Size size,
     Pointer Function(ui.Image, double ratio) pointerBuilder =
         MagnifierPointer.new,
+    ImageErrorWidgetBuilder errorBuilder = defaultErrorBuilder,
     required ValueChanged<Color> onSelected,
   }) {
     if (bytes == null) {
@@ -43,7 +47,16 @@ abstract class EyeDropper extends StatelessWidget {
       bytes: bytes,
       size: size,
       pointerBuilder: pointerBuilder,
+      errorBuilder: errorBuilder,
       onSelected: onSelected,
+    );
+  }
+
+  static Widget defaultErrorBuilder(
+      BuildContext context, Object? error, StackTrace? stackTrace) {
+    return const Icon(
+      Icons.error,
+      color: Colors.black45,
     );
   }
 }
@@ -72,6 +85,7 @@ class _EyeDropper extends EyeDropper {
     required this.bytes,
     required this.size,
     required this.pointerBuilder,
+    required this.errorBuilder,
     required this.onSelected,
   }) : super._();
 
@@ -89,6 +103,9 @@ class _EyeDropper extends EyeDropper {
 
   /// Builder of a pointer.
   late final Pointer Function(ui.Image, double ratio) pointerBuilder;
+
+  /// Builder when an error occurs.
+  final ImageErrorWidgetBuilder errorBuilder;
 
   /// Pointer instance.
   late final Pointer _pointer;
@@ -137,12 +154,12 @@ class _EyeDropper extends EyeDropper {
       height: size.height,
       child: FutureBuilder<bool>(
         future: _init(),
-        builder: (_, snapshot) {
+        builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
             return _mainArea();
           } else if (snapshot.hasError) {
-            throw ImageInitializationException('${snapshot.error!}');
+            return errorBuilder(context, snapshot.error!, null);
           }
           return const CircularProgressIndicator();
         },

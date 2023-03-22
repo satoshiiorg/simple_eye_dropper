@@ -44,4 +44,24 @@ void main() {
       }
     });
   });
+
+  testWidgets('EyeDropper exception test', (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      final eyeDropper = EyeDropper.of(
+        bytes: Uint8List(0),
+        size: const Size(200, 200),
+        pointerBuilder: (_, __) => SimplePointer(),
+        onSelected: (color) {},
+      );
+      await tester.pumpWidget(MaterialApp(home: eyeDropper));
+
+      // Initial display is CircularProgressIndicator.
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      // Wait for FutureBuilder.
+      await Future<void>.delayed(const Duration(seconds: 3));
+      await tester.pumpAndSettle();
+      // An error icon.
+      expect(find.byType(Icon), findsNWidgets(1));
+    });
+  });
 }

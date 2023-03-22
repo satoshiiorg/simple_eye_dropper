@@ -9,16 +9,16 @@ A simple eye dropper widget that depends only on standard libraries.
 <img src="https://user-images.githubusercontent.com/36852007/225324832-6ca002f4-5bee-4bb9-b9d6-47702a12df7d.png" alt="" width="40%" height="40%" >  
 
 ## Table of Contents
-- [Use with asset images](#Use-with-asset-images)
+- [Use with asset images](#use-with-asset-images)
 - [Pointer](#pointer)
-    - [Choose a Pointer implementation](#Choose-a-Pointer-implementation)
-    - [Implement Pointer](#Implement-Pointer)
-- [Image related](#Image-related)
-    - [Supported image formats and exception handling](#Supported-image-formats-and-exception-handling)
-    - [Use with image_picker](#Use-with-image_picker)
-    - [Use with network images](#Use-with-network-images)
-    - [Use with Dart Image Library](#Use-with-Dart-Image-Library)
-- [Use with Riverpod](#Use-with-Riverpod)
+  - [Choose a Pointer implementation](#choose-a-pointer-implementation)
+  - [Implement Pointer](#implement-Pointer)
+- [Image related](#image-related)
+  - [Supported image formats and exception handling](#supported-image-formats-and-exception-handling)
+  - [Use with image_picker](#use-with-image_picker)
+  - [Use with network images](#use-with-network-images)
+  - [Use with Dart Image Library](#use-with-dart-image-library)
+- [Use with Riverpod](#use-with-riverpod)
 
 ## Use with asset images
 
@@ -116,20 +116,22 @@ EyeDropper.of(
 You can also create your own pointers by inheriting from `Pointer` classes.  
 Refer to the code of the `CircleMagnifierPointer` class for how to implement `Pointer`.
 
-  
-
 ## Image related
 
 ### Supported image formats and exception handling
 
-It follows
+Supported image formats are similar to
 [instantiateImageCodec](https://api.flutter.dev/flutter/dart-ui/instantiateImageCodec.html)
 function of dart:ui.  
 At least the following image formats are supported: JPEG, PNG, GIF, Animated GIF, WebP,
-Animated WebP, BMP, and WBMP.  
-  
-Passing an unsupported image format Uint8List to `bytes` will throw an `ImageInitializationException`.  
-If you pass `null` for `bytes`, a blank area will be displayed.  
+Animated WebP, BMP, and WBMP.
+
+When passing an unsupported image format Uint8List to `bytes`, `errorBuilder` is called.  
+The usage of `errorBuilder` is the same as in
+[Image.errorBuilder](https://api.flutter.dev/flutter/widgets/Image/errorBuilder.html).
+By default, a gray error icon is displayed.
+
+If you pass `null` for `bytes`, a blank area will be displayed.
 
 ### Use with image_picker
 

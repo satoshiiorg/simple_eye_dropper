@@ -122,25 +122,33 @@ EyeDropper.of(
 `Pointer` クラスを継承することで、より自分好みのポインタを作成することもできます。  
 実装の仕方は `CircleMagnifierPointer` クラスのコードなどを参考にしてください。
 
-
 ## 画像処理関連
 
 ### 対応している画像形式と例外処理
 
-dart:ui の [instantiateImageCodec](https://api.flutter.dev/flutter/dart-ui/instantiateImageCodec.html)
+dart:ui
+の [instantiateImageCodec](https://api.flutter.dev/flutter/dart-ui/instantiateImageCodec.html)
 関数に準じています。  
 少なくとも JPEG・PNG・GIF・アニメーションGIF・WebP・アニメーションWebP・BMP・WBMP に対応しているはずです。
 
-`bytes` に対応していない画像形式の Uint8List を渡した場合は `ImageInitializationException` が発生します。  
+`bytes` に対応していない画像形式の Uint8List を渡した場合は `errorBuilder` がコールされます。  
+`errorBuilder` の使い方は
+[Image.errorBuilder](https://api.flutter.dev/flutter/widgets/Image/errorBuilder.html) と同様です。  
+デフォルトではグレーのエラーアイコンが表示されます。
+
 `bytes` に `null` を渡した場合は空白の領域が表示されます。
 
 ### image_picker との連携例
 
 ```dart
+
 final picker = ImagePicker();
-final image = await picker.pickImage(source: ImageSource.gallery);
+final image = await
+picker.pickImage
+(
+source: ImageSource.gallery);
 if(image == null) {
-  return;
+return;
 }
 final bytes = await image.readAsBytes();
 

@@ -1,3 +1,17 @@
+## [0.2.0] - 2023-03-22
+
+### Added
+
+- Add errorBuilder property to EyeDropper.
+
+### Removed
+
+- Removed ImageInitializationException.
+
+### Changed
+
+- Changed EyeDropper not to throw ImageInitializationException.
+
 ## [0.1.0] - 2023-03-19
 
 ### Added
