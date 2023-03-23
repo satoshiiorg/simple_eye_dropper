@@ -144,11 +144,9 @@ dart:ui
 
 final picker = ImagePicker();
 final image = await
-picker.pickImage
-(
-source: ImageSource.gallery);
+picker.pickImage(source: ImageSource.gallery);
 if(image == null) {
-return;
+  return;
 }
 final bytes = await image.readAsBytes();
 

@@ -159,7 +159,7 @@ class _EyeDropper extends EyeDropper {
               snapshot.hasData) {
             return _mainArea();
           } else if (snapshot.hasError) {
-            return errorBuilder(context, snapshot.error!, null);
+            return errorBuilder(context, snapshot.error!, snapshot.stackTrace);
           }
           return const CircularProgressIndicator();
         },

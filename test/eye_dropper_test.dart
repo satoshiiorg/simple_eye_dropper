@@ -47,10 +47,17 @@ void main() {
 
   testWidgets('EyeDropper exception test', (WidgetTester tester) async {
     await tester.runAsync(() async {
+      Object? aError;
+      StackTrace? aStackTrace;
       final eyeDropper = EyeDropper.of(
         bytes: Uint8List(0),
         size: const Size(200, 200),
         pointerBuilder: (_, __) => SimplePointer(),
+        errorBuilder: (context, error, stackTrace) {
+          aError = error;
+          aStackTrace = stackTrace;
+          return const Icon(Icons.error);
+        },
         onSelected: (color) {},
       );
       await tester.pumpWidget(MaterialApp(home: eyeDropper));
@@ -62,6 +69,9 @@ void main() {
       await tester.pumpAndSettle();
       // An error icon.
       expect(find.byType(Icon), findsNWidgets(1));
+      // Actual error and stackTrace.
+      expect(aError, isNotNull);
+      expect(aStackTrace, isNotNull);
     });
   });
 }
