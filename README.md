@@ -14,7 +14,7 @@ A simple eye dropper widget that depends only on standard libraries.
   - [Choose a Pointer implementation](#choose-a-pointer-implementation)
   - [Implement Pointer](#implement-Pointer)
 - [Image related](#image-related)
-  - [Supported image formats and exception handling](#supported-image-formats-and-exception-handling)
+  - [Supported image formats and error handling](#supported-image-formats-and-error-handling)
   - [Use with image_picker](#use-with-image_picker)
   - [Use with network images](#use-with-network-images)
   - [Use with Dart Image Library](#use-with-dart-image-library)
@@ -118,7 +118,7 @@ Refer to the code of the `CircleMagnifierPointer` class for how to implement `Po
 
 ## Image related
 
-### Supported image formats and exception handling
+### Supported image formats and error handling
 
 Supported image formats are similar to
 [instantiateImageCodec](https://api.flutter.dev/flutter/dart-ui/instantiateImageCodec.html)
