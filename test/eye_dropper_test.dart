@@ -70,7 +70,7 @@ void main() {
       // An error icon.
       expect(find.byType(Icon), findsNWidgets(1));
       // Actual error and stackTrace.
-      expect(aError, isNotNull);
+      expect(aError, isException);
       expect(aStackTrace, isNotNull);
     });
   });
