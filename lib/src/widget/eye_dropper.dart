@@ -53,7 +53,10 @@ abstract class EyeDropper extends StatelessWidget {
   }
 
   static Widget defaultErrorBuilder(
-      BuildContext context, Object? error, StackTrace? stackTrace) {
+    BuildContext context,
+    Object? error,
+    StackTrace? stackTrace,
+  ) {
     return const Icon(
       Icons.error,
       color: Colors.black45,

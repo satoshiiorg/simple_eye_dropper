@@ -51,17 +51,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Show SnackBar if an error occurs.
-    Object? vError;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (vError != null) {
-        final snackBar = SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text('$vError'),
-        );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      }
-    });
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -95,14 +84,6 @@ class MyHomePage extends StatelessWidget {
                 return EyeDropper.of(
                   bytes: bytes, // Raw image bytes.
                   size: imageAreaSize,
-                  errorBuilder: (_, error, stackTrace) {
-                    // print('$stackTrace');
-                    vError = error;
-                    return const Icon(
-                      Icons.error,
-                      color: Colors.black54,
-                    );
-                  },
                   // Callback when color is selected.
                   onSelected: (color) => _color.value = color,
                 );
