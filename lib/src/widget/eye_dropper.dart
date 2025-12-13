@@ -128,7 +128,7 @@ class _EyeDropper extends EyeDropper {
   /// Initialization.
   ///
   /// Initialize ui.Image, convert to ByteData, and calculate reduction ratio.
-  /// Future<void> does not work well with FutureBuilder, so Future<bool> is
+  /// `Future<void>` does not work well with FutureBuilder, so `Future<bool>` is
   /// used.
   Future<bool> _init() async {
     final codec = await ui.instantiateImageCodec(bytes);
@@ -250,9 +250,9 @@ class _EyeDropper extends EyeDropper {
 
     // Cut out each channel from Uint32.
     final rgba = _bytesRgba.getUint32(position1d);
-    final r = rgba >> 24;
-    final g = rgba >> 16 & 0xFF;
-    final b = rgba >> 8 & 0xFF;
+    final r = (rgba >> 24) & 0xFF;
+    final g = (rgba >> 16) & 0xFF;
+    final b = (rgba >> 8) & 0xFF;
     final a = rgba & 0xFF;
     final color = Color.fromARGB(a, r, g, b);
 

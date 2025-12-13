@@ -152,6 +152,7 @@ class PickedPainter extends CustomPainter {
 /// Show hex triplet like #FFFFFF.
 extension HexTriplet on Color {
   String hexTriplet() {
-    return '#${value.toRadixString(16).padLeft(8, '0').substring(2, 8).toUpperCase()}';
+    return '#${toARGB32().toRadixString(16).padLeft(8, '0').substring(2, 8).toUpperCase()}';
+    // return '#${(toARGB32() & 0xFFFFFF).toRadixString(16).toUpperCase().padLeft(6, '0')}';
   }
 }

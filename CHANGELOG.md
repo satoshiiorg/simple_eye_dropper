@@ -1,3 +1,7 @@
+## [0.2.2] - 2025-12-14
+
+- Internal improvements and code cleanup.
+
 ## [0.2.1] - 2023-03-23
 
 - Fixed to pass stackTrace to errorBuilder.
