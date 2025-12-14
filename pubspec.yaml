@@ -4,7 +4,7 @@ version: 0.2.1
 homepage: https://github.com/satoshiiorg/simple_eye_dropper
 
 environment:
-  sdk: '>=2.19.3 <3.0.0'
+  sdk: '>=2.19.3 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:
