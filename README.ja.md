@@ -9,7 +9,7 @@ Dart および Flutter の標準ライブラリ以外への依存のない、シ
 <img src="https://user-images.githubusercontent.com/36852007/225324832-6ca002f4-5bee-4bb9-b9d6-47702a12df7d.png" alt="" width="40%" height="40%" >  
 
 ## 目次
-- [インストール]()
+- [インストール](#インストール)
 - [基本的な使い方 (アセット画像との連携例)](#基本的な使い方-アセット画像との連携例)
 - [ポインタ](#ポインタ)
   - [ポインタの選択](#ポインタの選択)
@@ -21,7 +21,7 @@ Dart および Flutter の標準ライブラリ以外への依存のない、シ
   - [image パッケージ (Dart Image Library) との連携例](#image-パッケージ-Dart-Image-Library-との連携例)
 - [Riverpod と併用する](#Riverpod-と併用する)
 
-## Installing
+## インストール
 参照: [simple_eye_dropper install | Flutter package](https://pub.dev/packages/simple_eye_dropper/install)  
 
 
