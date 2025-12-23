@@ -9,6 +9,7 @@ A simple eye dropper widget that depends only on standard libraries.
 <img src="https://user-images.githubusercontent.com/36852007/225324832-6ca002f4-5bee-4bb9-b9d6-47702a12df7d.png" alt="" width="40%" height="40%" >  
 
 ## Table of Contents
+- [Installing](#installing)
 - [Use with asset images](#use-with-asset-images)
 - [Pointer](#pointer)
   - [Choose a Pointer implementation](#choose-a-pointer-implementation)
@@ -19,6 +20,34 @@ A simple eye dropper widget that depends only on standard libraries.
   - [Use with network images](#use-with-network-images)
   - [Use with Dart Image Library](#use-with-dart-image-library)
 - [Use with Riverpod](#use-with-riverpod)
+
+## Installing
+See: [simple_eye_dropper install | Flutter package](https://pub.dev/packages/simple_eye_dropper/install)  
+
+Add the dependency:
+
+```console
+$ flutter pub add simple_eye_dropper
+```
+
+or add it manually to pubspec.yaml:
+
+```yaml:pubspec.yaml
+dependencies:
+  simple_eye_dropper: ^0.2.2
+```
+
+then run:  
+
+```console
+$ flutter pub get
+```
+
+and import it:
+
+```dart
+import 'package:simple_eye_dropper/simple_eye_dropper.dart';
+```
 
 ## Use with asset images
 
